@@ -29,14 +29,14 @@ An SSH key is used to grant your machine access credentials to the remote servic
 # Git Config and command aliases
 
 First you need to store on our machine the info about you, the **author, committer** - inside the Git configuration file `.gitconfig`.  
-Open your terminal and enter the following lines, replacing the below values with your own data, and make sure to use the **same email** you used while registering in the preferred online service: 
+Open your terminal and enter the following lines, replacing the below values with your own data, and make sure to use the **same email** you used while registering to the preferred online service: 
 
 ```sh
 $ git config --global user.name "My Name" # Your name
 $ git config --global user.email "my.name@example.com" # The email you used on GitHub, GitLab, etc
 ```
 
-Git commands can be tedoius to type, what if instead of typing `git push --force-with-lease` we could just do: `git ph`. Here's my suggestion for the additional configuration parameters, feel free to modify or expand it.  
+Git commands can be tedious to type, what if instead of typing `git push --force-with-lease` we could just do: `git ph`. Here's my suggestion for the additional configuration parameters, feel free to modify or expand it.  
 
 Open in your favorite code editor `~/.gitconfig`  
 You should already see `[user]` and the key/values we entered previously.   
