@@ -236,12 +236,12 @@ Time to merge a feature back to where it derived from.
 We are happy with how our feature ended up, well tested, working and shiny, it's time to put it into `master` so it can be i.e: shipped to production: 
 
 ```sh
-# (feeature-ajax)
+# (feature-ajax)
 $ git ch master # checkout to master branch
 # (master)
 $ git pl # bring eventual changes on master from remote
 $ git ch - # go back (or use: git ch feature-ajax)  
-# (feeature-ajax)
+# (feature-ajax)
 $ git rebase master # Rebase with master and fix possible conflicts  
 $ git ch - # go back to master (or use: git ch master)
 # (master)
