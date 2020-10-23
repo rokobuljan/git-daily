@@ -209,6 +209,16 @@ git ph -u origin feature-ajax # Send branch and commits to remote
 
 <sub>PS: `-u` flag is a shorthand for `--set-upstream`</sub>
 
+***TIP:***  
+
+If you don't want to remember the above line, you could instead just do as usual:
+
+```sh
+$ git ph
+```
+
+and follow the instructions in your terminal, telling you to use rather: `git push --set-upstream origin feature-ajax`
+
 ## Pull/Push  with Rebase
 
 Since we know now that our branch exists on the remote and other developers could have also contributed to the code on that branch, we **always** want to first bring the remote work to our machine, apply our changes on-top and only than - `push` to remote:
