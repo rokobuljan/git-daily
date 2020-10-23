@@ -366,6 +366,28 @@ $ git ch -- . # undo edits on all files
 ```
 
 
+## Delete branch
+
+Delete a local branch:
+```sh
+$ git branch -d <branch_name> # Delete if branch is fully merged
+```
+```sh
+$ git branch -D <branch_name> # Delete branch (force delete)
+```
+
+Delete a remote branch:
+```sh
+$ git push origin --delete <branch_name>
+```
+
+After removing a branch from remote, in order to get rid of tracking branches - make sure to run on other machines:
+```sh
+$ git branch -a # to see if obsolete (deleted) branch still exists
+$ git fetch --all --prune # Update refs - gets rid obsolete, orphaned branches
+```
+
+
 
 
 
