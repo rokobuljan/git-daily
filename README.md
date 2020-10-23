@@ -362,8 +362,19 @@ Other useful commands:
 $ git ch -- <file> # undo edits on a specific file i.e: git ch -- js/api/index.js
 ```
 ```sh
-$ git ch -- . # undo edits on all files
+$ git ch -- . # Undo edits on all files
 ```
+```sh
+$ git reset HEAD <file> # Unstage the file to current commit (HEAD)
+```
+```sh
+git reset # Unstage everything, but keep changes
+```
+```sh
+$ git reset --hard # Unstage changes to all files
+```
+
+<sub>Read more [Undo possibilities](https://docs.gitlab.com/ee/topics/git/numerous_undo_possibilities_in_git/)</sub>
 
 
 ## Delete branch
