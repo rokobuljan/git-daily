@@ -260,7 +260,7 @@ $ git ph # push master back to remote
 ```
 
 ```
-(master)    a───b───k───x───y───L 
+(master)    a───b───k───x───y───l 
 (feature-ajax)                  ╰─
 ```
 
