@@ -122,7 +122,7 @@ Commits are stored with a reference, a 40 characters length SHA-1 hash like i.e:
 Say now, after editing some files and fixing some code, one additional commit is added (`"Create form"`):
 
 ```
-(master)    a╾╾╾B
+(master)    a───B
 ```
 
 # Workflow
@@ -140,8 +140,8 @@ $ git ch -b feature-ajax
 At this stage you can think of your new branch as an exact *copy* of the branch you diverged from on which you can start experimenting.
 
 ```
-(master)    a╾╾╾b
-(feature-ajax)  ╰╾
+(master)    a───b
+(feature-ajax)  ╰─
 ```
 ```sh
 # Work on your code. Add new files and create a commit with message:
@@ -150,8 +150,8 @@ $ git st # to see what files we changed
 $ git cm "WIP Create JS AJAX forms" # Alias for git add -A && git commit -m 
 ```
 ```
-(master)    a╾╾╾b
-(feature-ajax)  ╰╾X
+(master)    a───b
+(feature-ajax)  ╰─X
 ```
 
 ## Interactive Rebase
@@ -159,8 +159,8 @@ $ git cm "WIP Create JS AJAX forms" # Alias for git add -A && git commit -m
 After adding another commit i.e: `"WIP Create error callbacks"`
 
 ```
-(master)    a╾╾╾b
-(feature-ajax)  ╰╾x╾╾╾Y
+(master)    a───b
+(feature-ajax)  ╰─x───Y
 ```
 
 the two *"WIP"* (Work In Progress) are not a nice thing to share with other developers.  
@@ -193,8 +193,8 @@ Save and close the interactive editor.
 The two commits are now joined into one with a new hash value:
 
 ```
-(master)    a╾╾╾b
-(feature-ajax)  ╰╾K
+(master)    a───b
+(feature-ajax)  ╰─K
 ```
 
 ## Push new branch to remote
@@ -226,8 +226,8 @@ PS: Peview the **Aliases** table if you forgot what `st, cm, pl, ph` are.
 Our tree with our latest commit `l` put on top of other people commits (`x`, `y`) might now look like:
 
 ```
-(master)    a╾╾╾b
-(feature-ajax)  ╰╾k╾╾╾x╾╾╾y╾╾╾L 
+(master)    a───b
+(feature-ajax)  ╰─k───x───y───L 
 ```
 
 ## Merge 
