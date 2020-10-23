@@ -249,6 +249,59 @@ $ git merge feature-ajax # bring our feature branch on-top of master
 $ git ph # push master back to remote
 ```
 
+```
+(master)    a───b───k───x───y───L 
+(feature-ajax)                  ╰─
+```
+
+
+## Stash
+
+Say you're working on something, and suddenly a colleague asks to go urgently fix a bug on a  i.e: `dev` branch. Here's where **stash** comes really handy.
+
+Save your file edits and do:
+
+```sh
+# (feature-menu-responsive) save your work in progress files and do:
+git stash # Your branch is now in the exact state as it were before you started working 
+git ch dev # Switch to the dev branch
+# (dev)
+# hack, hack, hack... commit, pull, push 
+git ch - # Return to your feature-menu-responsive  
+# (feature-menu-responsive)
+git stash pop # bring back your edited files from stash
+# Continue working as nothing happened
+```
+
+Stash can be also used to store various tries.  
+Say you have two solutions, ideas for a piece of code. You want to try that other quick idea starting from scratch - without losing the code of your first one: 
+
+```sh
+# (feature-comm-tabs) 
+# You created some quick JS nifty code and all works fine
+$ git stash save "comm-tabs using JS postMessage"
+# Hack your other JS idea
+$ git stash save "comm-tabs using JS storage event" 
+```
+and say you're not happy how latest idea ended up working.   
+Let's view our Stashes and let's pick the one we want to revert to:
+
+```sh
+# (feature-comm-tabs) 
+$ git stash list
+# here you should see a list of your saved stashes with their index like i.e:
+# stash@{0} "comm-tabs using JS storage event"
+# stash@{1} "comm-tabs using JS postMessage"
+# Let's revert to the index {1}:
+$ git stash apply stash@{1}
+# continue working on your postMessage code idea!
+```
+
+<sub>PS: Read more: [Git Tools: Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning)</sub>
+
+
+
+
 
 
 
