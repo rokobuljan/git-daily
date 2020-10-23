@@ -90,7 +90,8 @@ To **clone** an existing repository head to the project page and under ***"Clone
 `cd` into a folder you want to clone that project into i.e: `projects` and execute in shell:
 
 ```sh
-$ git clone git@gitlab.com:some-group/some-repo.git
+$ git clone <url>
+# i.e: git clone git@gitlab.com:some-group/some-repo.git
 ```
 
 you should now see your cloned repository:
@@ -103,7 +104,31 @@ projects/
 </pre>
 
 
+
 # Understanding
+
+## Gitignore
+
+Before initializing your project into a git repository using `git init` or before you decide to add random files, folders or vendor files into your project that do not need to end up on a remote repository, you want to create a `.gitignore` file beforehand.
+
+In the root (or inside any folder) of your project create a `.gitignore` file.  Open it and start adding the relative paths to the files you don't want to be added to the Git repository
+
+```  
+.vscode  
+.idea
+node_modules
+passwords
+my_ideas.md
+api/db/config.json
+```
+
+save `.gitignore` and commit it:
+
+```sh
+$ git cm "Add gitignore" # or "Edit gitignore" if you added stuff to it
+$ git pl # get branch changes from remote and apply your current commits on-top
+$ git ph # push changes to remote (origin)
+```
 
 ## Commits and Branches  
 
@@ -152,6 +177,14 @@ $ git cm "WIP Create JS AJAX forms" # Alias for git add -A && git commit -m
 ```
 (master)    a───b
 (feature-ajax)  ╰─X
+```
+
+## See local branches
+
+To See a list of available branches
+
+```sh
+$ git branch # Shows a list of local branches
 ```
 
 ## Interactive Rebase
@@ -236,7 +269,7 @@ PS: Peview the **Aliases** table if you forgot what `st, cm, pl, ph` are.
 Our tree with our latest commit `l` put on top of other people commits (`x`, `y`) might now look like:
 
 ```
-(master)    a───b
+(master)    a───b───c───d
 (feature-ajax)  ╰─k───x───y───L 
 ```
 
@@ -253,6 +286,14 @@ $ git pl # bring eventual changes on master from remote
 $ git ch - # go back (or use: git ch feature-ajax)  
 # (feature-ajax)
 $ git rebase master # Rebase with master and fix possible conflicts  
+```
+
+```
+(master)    a───b───c───d
+(feature-ajax)          ╰─k───x───y───L 
+```
+
+```sh
 $ git ch - # go back to master (or use: git ch master)
 # (master)
 $ git merge feature-ajax # bring our feature branch on-top of master
@@ -260,8 +301,8 @@ $ git ph # push master back to remote
 ```
 
 ```
-(master)    a───b───k───x───y───l 
-(feature-ajax)                  ╰─
+(master)    a───b───c───d───k───x───y───l 
+(feature-ajax)                          ╰─
 ```
 
 
@@ -310,6 +351,19 @@ $ git stash apply stash@{1}
 <sub>PS: Read more: [Git Tools: Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning)</sub>
 
 
+# Other 
+
+Other useful commands:
+
+## Undo file/s to initial commit state
+
+
+```sh
+$ git ch -- <file> # undo edits on a specific file i.e: git ch -- js/api/index.js
+```
+```sh
+$ git ch -- . # undo edits on all files
+```
 
 
 
