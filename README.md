@@ -245,8 +245,8 @@ $ git ch - # go back (or use: git ch feature-ajax)
 $ git rebase master # Rebase with master and fix possible conflicts  
 $ git ch - # go back to master (or use: git ch master)
 # (master)
-$ git merge feature-ajax # bring our feature branch on-top   
-$ git ph # push everything back to remote
+$ git merge feature-ajax # bring our feature branch on-top of master
+$ git ph # push master back to remote
 ```
 
 
